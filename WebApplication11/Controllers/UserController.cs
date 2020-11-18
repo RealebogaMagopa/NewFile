@@ -14,11 +14,11 @@ namespace WebApplication11.Controllers
     
     public class UserController : Controller
     {
-        private readonly IConfiguration configuration;
+        private readonly IConfiguration config;
 
         public UserController(IConfiguration config)
         {
-
+            this.config = config;
         }
         public IActionResult Index()
         {
