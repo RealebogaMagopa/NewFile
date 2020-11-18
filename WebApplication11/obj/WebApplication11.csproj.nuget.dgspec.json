@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Makgathume\\Desktop\\WebApplication11\\WebApplication11\\WebApplication11.csproj": {}
+    "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Makgathume\\Desktop\\WebApplication11\\WebApplication11\\WebApplication11.csproj": {
+    "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Makgathume\\Desktop\\WebApplication11\\WebApplication11\\WebApplication11.csproj",
+        "projectUniqueName": "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj",
         "projectName": "WebApplication11",
-        "projectPath": "C:\\Users\\Makgathume\\Desktop\\WebApplication11\\WebApplication11\\WebApplication11.csproj",
+        "projectPath": "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj",
         "packagesPath": "C:\\Users\\Makgathume\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Makgathume\\Desktop\\WebApplication11\\WebApplication11\\obj\\",
+        "outputPath": "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Makgathume\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,7 +52,7 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.10, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
+
 using Microsoft.Extensions.Configuration;
 
 namespace WebApplication11.Controllers
@@ -15,7 +16,7 @@ namespace WebApplication11.Controllers
     {
         private readonly IConfiguration configuration;
 
-        public WebApplication11(IConfiguration config)
+        public UserController(IConfiguration config)
         {
 
         }
