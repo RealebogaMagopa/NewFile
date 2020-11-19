@@ -23,7 +23,16 @@ namespace WebApplication11.Data
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<Cost> Cost { get; set; }
         public virtual DbSet<Dataset> Dataset { get; set; }
+        public virtual DbSet<EducationField> EducationField { get; set; }
+        public virtual DbSet<EmployeeDetail> EmployeeDetail { get; set; }
+        public virtual DbSet<EmployeeEducationInfo> EmployeeEducationInfo { get; set; }
+        public virtual DbSet<EmployeeHistory> EmployeeHistory { get; set; }
+        public virtual DbSet<JobInfo> JobInfo { get; set; }
+        public virtual DbSet<JobRole> JobRole { get; set; }
+        public virtual DbSet<LookupEducation> LookupEducation { get; set; }
+        public virtual DbSet<LookupJob> LookupJob { get; set; }
         public virtual DbSet<Table1> Table1 { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -135,6 +144,16 @@ namespace WebApplication11.Data
                 entity.Property(e => e.UserName).HasMaxLength(256);
             });
 
+            modelBuilder.Entity<Cost>(entity =>
+            {
+                entity.Property(e => e.CostId).HasColumnName("CostID");
+
+                entity.HasOne(d => d.EmployeeNumberNavigation)
+                    .WithMany(p => p.Cost)
+                    .HasForeignKey(d => d.EmployeeNumber)
+                    .HasConstraintName("FK__Cost__EmployeeNu__5FB337D6");
+            });
+
             modelBuilder.Entity<Dataset>(entity =>
             {
                 entity.HasKey(e => e.EmployeeNumber);
@@ -194,6 +213,130 @@ namespace WebApplication11.Data
                 entity.Property(e => e.YearsSinceLastPromotion).HasMaxLength(50);
 
                 entity.Property(e => e.YearsWithCurrManager).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<EducationField>(entity =>
+            {
+                entity.HasKey(e => e.EducationCode)
+                    .HasName("PK__Educatio__E2D8B715A40E657B");
+
+                entity.Property(e => e.EducationDescription)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<EmployeeDetail>(entity =>
+            {
+                entity.HasKey(e => e.EmployeeNumber)
+                    .HasName("PK__Employee__8D663599E9302488");
+
+                entity.Property(e => e.EmployeeNumber).ValueGeneratedNever();
+
+                entity.Property(e => e.Gender)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.MaritalStatus)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<EmployeeEducationInfo>(entity =>
+            {
+                entity.HasKey(e => new { e.EmployeeNumber, e.EducationCode })
+                    .HasName("PK_Education");
+
+                entity.HasOne(d => d.EducationCodeNavigation)
+                    .WithMany(p => p.EmployeeEducationInfo)
+                    .HasForeignKey(d => d.EducationCode)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__EmployeeE__Educa__6B24EA82");
+
+                entity.HasOne(d => d.EmployeeNumberNavigation)
+                    .WithMany(p => p.EmployeeEducationInfo)
+                    .HasForeignKey(d => d.EmployeeNumber)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__EmployeeE__Emplo__6A30C649");
+            });
+
+            modelBuilder.Entity<EmployeeHistory>(entity =>
+            {
+                entity.Property(e => e.Attrition).HasMaxLength(50);
+
+                entity.Property(e => e.BusinessTravel)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Over18)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.OverTime).HasMaxLength(50);
+
+                entity.HasOne(d => d.EmployeeNumberNavigation)
+                    .WithMany(p => p.EmployeeHistory)
+                    .HasForeignKey(d => d.EmployeeNumber)
+                    .HasConstraintName("FK__EmployeeH__Emplo__6E01572D");
+            });
+
+            modelBuilder.Entity<JobInfo>(entity =>
+            {
+                entity.HasKey(e => new { e.EmployeeNumber, e.JobRoleCode })
+                    .HasName("PK_Job");
+
+                entity.Property(e => e.Department)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.EmployeeNumberNavigation)
+                    .WithMany(p => p.JobInfo)
+                    .HasForeignKey(d => d.EmployeeNumber)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__JobInfo__Employe__6477ECF3");
+
+                entity.HasOne(d => d.JobRoleCodeNavigation)
+                    .WithMany(p => p.JobInfo)
+                    .HasForeignKey(d => d.JobRoleCode)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__JobInfo__JobRole__656C112C");
+            });
+
+            modelBuilder.Entity<JobRole>(entity =>
+            {
+                entity.HasKey(e => e.JobRoleCode)
+                    .HasName("PK__JobRole__D9D29CA192BA34BF");
+
+                entity.Property(e => e.Job)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<LookupEducation>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Education).HasMaxLength(50);
+
+                entity.Property(e => e.EmployeeNumber)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<LookupJob>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.Department).HasMaxLength(50);
+
+                entity.Property(e => e.EmployeeNumber)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.JobInvolvement).HasMaxLength(50);
+
+                entity.Property(e => e.JobLevel).HasMaxLength(50);
+
+                entity.Property(e => e.JobSatisfaction).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Table1>(entity =>
