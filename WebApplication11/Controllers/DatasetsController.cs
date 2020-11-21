@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using WebApplication11.Models;
 
 namespace WebApplication11.Controllers
 {
+    
     public class DatasetsController : Controller
     {
         private readonly Project2Context _context;
@@ -18,13 +20,13 @@ namespace WebApplication11.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Datasets
         public async Task<IActionResult> Index()
         {
             return View(await _context.Dataset.ToListAsync());
         }
-
+        [Authorize(Roles = "Admin, User")]
         // GET: Datasets/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -42,7 +44,7 @@ namespace WebApplication11.Controllers
 
             return View(dataset);
         }
-
+        [Authorize(Roles = "User")]
         // GET: Datasets/Create
         public IActionResult Create()
         {
@@ -65,6 +67,7 @@ namespace WebApplication11.Controllers
             return View(dataset);
         }
 
+        [Authorize(Roles = "Admin, User")]
         // GET: Datasets/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
