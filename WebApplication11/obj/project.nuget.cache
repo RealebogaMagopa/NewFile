@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xYfnofw+ztaoSZ3Srh+5JHCiDZCvNCs3ia0BJXZA7uf73iWgvrbeWqFMm0NBqjCAPTahrhFU15teFiYVSFjUbg==",
+  "dgSpecHash": "SyVc8+CaIwg3tPBpR/6TNFTKrWoaE5hIDWTMOA1d8LGed/tHG22examHSXZlG7l+1Jt4hGUSr+GT7TC7UCPOJw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj",
+  "projectFilePath": "C:\\Users\\Makgathume\\Source\\Repos\\NewFile\\WebApplication11\\WebApplication11.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Makgathume\\.nuget\\packages\\chart.js\\2.9.3\\chart.js.2.9.3.nupkg.sha512",
     "C:\\Users\\Makgathume\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.10\\microsoft.aspnetcore.cryptography.internal.3.1.10.nupkg.sha512",
     "C:\\Users\\Makgathume\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.10\\microsoft.aspnetcore.cryptography.keyderivation.3.1.10.nupkg.sha512",
     "C:\\Users\\Makgathume\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.10\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.10.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj": {}
+    "C:\\Users\\Makgathume\\Source\\Repos\\NewFile\\WebApplication11\\WebApplication11.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj": {
+    "C:\\Users\\Makgathume\\Source\\Repos\\NewFile\\WebApplication11\\WebApplication11.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj",
+        "projectUniqueName": "C:\\Users\\Makgathume\\Source\\Repos\\NewFile\\WebApplication11\\WebApplication11.csproj",
         "projectName": "WebApplication11",
-        "projectPath": "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\WebApplication11.csproj",
+        "projectPath": "C:\\Users\\Makgathume\\Source\\Repos\\NewFile\\WebApplication11\\WebApplication11.csproj",
         "packagesPath": "C:\\Users\\Makgathume\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Makgathume\\Desktop\\NewFile\\WebApplication11\\obj\\",
+        "outputPath": "C:\\Users\\Makgathume\\Source\\Repos\\NewFile\\WebApplication11\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Makgathume\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Chart.js": {
+              "target": "Package",
+              "version": "[2.9.3, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.10, )"
